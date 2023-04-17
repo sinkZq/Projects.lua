@@ -17,7 +17,7 @@ end
 Init() 
 
 -- // Constant Value Manipulation function
-local function StringManipulation(Request : string, Constant: any, Index : number): () -- // Constant passing is optional
+local function StringManipulation(Request : string, Constant: any, Index : number): ()
 	assert(type(Request) == "string", "Passed Argument Must Be type(string)")
 	Request = string.lower(Request)
 	local ReWriteToAdd = ""
