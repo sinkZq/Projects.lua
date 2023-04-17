@@ -25,7 +25,7 @@ local function StringManipulation(Request : string, Constant: any, Index : numbe
 		ReWriteToAdd = "local var__" .. Index .. "__" .. tostring(Constant) .. " = "
 	end
 	if Request == "f" then
-		ReWriteToAdd = Constant .. "()" -- // Adding function Memory Address + function Argument passing for eg. pcall(f)
+		ReWriteToAdd = Constant .. "()" -- // Adding function Memory Address + function Argument passing for eg. pcall(Argument)
 	end
 	if Request == "get" then
 		ReWriteToAdd = "game:GetService" .. '("' .. tostring(Constant) .. '")'
