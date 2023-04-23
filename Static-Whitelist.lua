@@ -1,18 +1,17 @@
 local HwidTable = setmetatable({}, {
 	__index = {
-		Whitelisted_Hwids = {"4FE74802-5A7E-4A3E-A223-A4875FD5F1BD"},
+		Whitelisted = {"4FE74802-5A7E-4A3E-A223-A4875FD5F1BD", 4266349299},
 	}
 })
 
 local KeyTable = setmetatable({}, {
 	__index = {
-		Keys = {HwidTable.Whitelisted_Hwids[1] = "wyxzeeysyuawzW"},
+		Key = {"wyxzeeysyuawzW"},
 	}
 })
 
-
-if table.find(HwidTable.Whitelisted_Hwids, game:GetService("RbxAnalyticsService"):GetClientId()) then
-	print("Whitelisted")
+if getgenv().Key ~= KeyTable.Key[1] or HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId() or HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId then
+    print("Not Whitelisted")
 else
-	print("Not Whitelisted")
+    print("Whitelisted")
 end
