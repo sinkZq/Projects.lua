@@ -32,7 +32,7 @@ task.spawn(function()
         local suc2, err2 = pcall(game.HttpGet)
 
         if (suc1 or suc2) or (err1 ~= "bad argument #1 to 'request' (expected table, got nil)" or err2 ~= "bad argument #1 to 'httpget' (expected userdata, got nil)") then
-            game:GetService("Players").LocalPlayer:Kick("HTTP SPY")
+            game:GetService("Players").LocalPlayer:Kick("hookfunction")
         end
     end
 end)
