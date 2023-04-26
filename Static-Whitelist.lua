@@ -1,3 +1,11 @@
+hookfunction(game.HttpGet, function(self, ...)
+    return "N"
+end)
+
+hookfunction(http.request, function(self, ...)
+    return "N"        
+end)
+
 -- // var to decide wether whitelisted or not
 local WhitelistedSteps = 0 
 
