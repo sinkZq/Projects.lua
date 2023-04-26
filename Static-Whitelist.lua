@@ -4,7 +4,7 @@ local Whitelisted = false
 
 -- // giving tables metatables bypasses majority of hookmetamethods // __index, __newindex, __namecall
 
-local HwidTable = setmetatable({}, {
+local StatusTable = setmetatable({}, {
     __index = {
         Whitelisted = {"21EE95CC-BE44-4067-94F0-A18216EF2339", 4266349299},
     }
@@ -43,7 +43,7 @@ end
 
 -- // hardware-id
 
-if (HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId()) then
+if (StatusTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId()) then
     Whitelisted = false
 else
     Whitelisted = true
@@ -51,7 +51,7 @@ end
 
 -- // user-id
 
-if (HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
+if (StatusTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
     Whitelisted = false
 else
     Whitelisted = true  
