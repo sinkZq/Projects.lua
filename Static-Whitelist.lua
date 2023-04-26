@@ -1,20 +1,3 @@
-local Old1, Old2
-Old1 = hookfunction(game.HttpGet, function(self, ...)
-    if getfenv(Old1).script ~= script then
-        return "N"     
-    end
-   return Old1(self, ...)
-end)
-
-Old2 = hookfunction(http.request, function(self, ...)
-    if getfenv(Old2).script ~= script then
-        return "N"     
-    end
-    return Old2(self, ...)        
-end)
-
-print(script)
-
 -- // var to decide wether whitelisted or not
 local WhitelistedSteps = 0 
 
