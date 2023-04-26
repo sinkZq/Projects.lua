@@ -1,4 +1,3 @@
-getgenv().Key = "wyxzeeysyuawzW"
 -- // var to decide wether whitelisted or not
 local WhitelistedSteps = 0 
 
