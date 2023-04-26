@@ -53,6 +53,7 @@ else
     Whitelisted = true  
 end
 
+-- // converting whitelisted bool to a string // output string
 local function ConvertBool(value: boolean): ()
     assert(type(value) == "boolean", "boolean required")
     if value == true then
