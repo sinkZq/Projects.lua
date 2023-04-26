@@ -29,25 +29,25 @@ task.spawn(function()
     end
 end)
 
-if type(getgenv().Key) ~= "string" then
+if (type(getgenv().Key) ~= "string") then
     Whitelisted = false  
 end
 
 -- // checking user whitelist // key, hwid, userid
 
-if getgenv().Key ~= KeyTable.Key[1] then
+if (getgenv().Key ~= KeyTable.Key[1]) then
     Whitelisted = false
 else
     Whitelisted = true
 end
 
-if HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId() then
+if (HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId()) then
     Whitelisted = false
 else
     Whitelisted = true
 end
 
-if HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId then
+if (HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
     Whitelisted = false
 else
     Whitelisted = true  
@@ -56,9 +56,9 @@ end
 -- // converting whitelisted bool to a string // output string
 local function ConvertBool(value: boolean): ()
     assert(type(value) == "boolean", "boolean required")
-    if value == true then
+    if (value == true) then
         value = "Whitelisted"
-    elseif value == false then
+    elseif (value == false) then
         value = "Not whitelisted"
     end
     return value
