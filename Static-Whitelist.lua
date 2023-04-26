@@ -1,3 +1,7 @@
+-- // var to decide wether whitelisted or not
+
+local Whitelisted = false 
+
 -- // giving tables metatables bypasses majority of hookmetamethods // __index, __newindex, __namecall
 
 local HwidTable = setmetatable({}, {
@@ -26,14 +30,28 @@ task.spawn(function()
     end
 end)
 
-for i, global in getgenv() do
-    
+if not table.find(getgenv(), "Key") then
+    Whitelisted = false
+else
+    Whitelisted = true
 end
 
 -- // checking user whitelist // hwid, userid
 
 if getgenv().Key ~= KeyTable.Key[1] or HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId() or HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId then
-    print("Not Whitelisted")
+    Whitelisted = false
 else
-    print("Whitelisted")
+    Whitelisted = false
 end
+
+local function ConvertBool(value: boolean): ()
+    assert(type(value) == "boolean", "boolean required")
+    if value == true then
+        value = "Whitelisted!"
+    elseif value == false
+        value = "Not Whitelisted!"
+    end
+    return value
+end
+
+print(ConvertBool(Whitelisted))
