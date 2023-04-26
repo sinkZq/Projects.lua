@@ -1,10 +1,12 @@
-hookfunction(game.HttpGet, function(self, ...)
+--[[hookfunction(game.HttpGet, function(self, ...)
     return "N"
 end)
 
 hookfunction(http.request, function(self, ...)
     return "N"        
-end)
+end)]]
+
+print(script)
 
 -- // var to decide wether whitelisted or not
 local WhitelistedSteps = 0 
