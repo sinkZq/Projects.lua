@@ -16,7 +16,6 @@ local KeyTable = setmetatable({}, {
     }
 })
 
-
 -- // anti hooks // http spies
 
 task.spawn(function()
@@ -36,10 +35,22 @@ end
 
 -- // checking user whitelist // hwid, userid
 
-if getgenv().Key ~= KeyTable.Key[1] or HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId() or HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId then
+if getgenv().Key ~= KeyTable.Key[1] then
     Whitelisted = false
 else
+    Whitelisted = true
+end
+
+if HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId() then
     Whitelisted = false
+else
+    Whitelisted = true
+end
+
+if HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId then
+    Whitelisted = false
+else
+    Whitelisted = true  
 end
 
 local function ConvertBool(value: boolean): ()
