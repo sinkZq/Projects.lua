@@ -1,9 +1,7 @@
 -- // var to decide wether whitelisted or not
-
 local Whitelisted = false 
 
 -- // giving tables metatables bypasses majority of hookmetamethods // __index, __newindex, __namecall
-
 local StatusTable = setmetatable({}, {
     __index = {
         Whitelisted = {"21EE95CC-BE44-4067-94F0-A18216EF2339", 4266349299},
@@ -17,7 +15,6 @@ local KeyTable = setmetatable({}, {
 })
 
 -- // anti hooks // http spies
-
 task.spawn(function()
     while task.wait(1) do
         local suc1, err1 = pcall(http.request)
@@ -34,7 +31,6 @@ if (type(getgenv().Key) ~= "string") then
 end
 
 -- // checking user whitelist // key
-
 if (getgenv().Key ~= KeyTable.Key[1]) then
     Whitelisted = false
 else
@@ -42,7 +38,6 @@ else
 end
 
 -- // hardware-id
-
 if (StatusTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId()) then
     Whitelisted = false
 else
@@ -50,7 +45,6 @@ else
 end
 
 -- // user-id
-
 if (StatusTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
     Whitelisted = false
 else
