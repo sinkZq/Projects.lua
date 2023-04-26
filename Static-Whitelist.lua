@@ -14,6 +14,17 @@ local KeyTable = setmetatable({}, {
     }
 })
 
+-- // converting whitelisted bool to a string // output string
+local function ConvertBool(value: boolean): ()
+    assert(type(value) == "boolean", "boolean required")
+    if (value == true) then
+        value = "Whitelisted"
+    elseif (value == false) then
+        value = "Not whitelisted"
+    end
+    return value
+end
+
 -- // anti hooks // http spies
 task.spawn(function()
     while task.wait(1) do
@@ -49,17 +60,6 @@ if (StatusTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId)
     Whitelisted = false
 else
     Whitelisted = true  
-end
-
--- // converting whitelisted bool to a string // output string
-local function ConvertBool(value: boolean): ()
-    assert(type(value) == "boolean", "boolean required")
-    if (value == true) then
-        value = "Whitelisted"
-    elseif (value == false) then
-        value = "Not whitelisted"
-    end
-    return value
 end
 
 print(ConvertBool(Whitelisted))
