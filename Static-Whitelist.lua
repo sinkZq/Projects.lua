@@ -49,7 +49,7 @@ else
     Whitelisted = true
 end
 
--- // UserId
+-- // user-id
 
 if (HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
     Whitelisted = false
