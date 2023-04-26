@@ -45,9 +45,9 @@ end
 local function ConvertBool(value: boolean): ()
     assert(type(value) == "boolean", "boolean required")
     if value == true then
-        value = "Whitelisted!"
-    elseif value == false
-        value = "Not Whitelisted!"
+        value = "Whitelisted"
+    elseif value == false then
+        value = "Not whitelisted"
     end
     return value
 end
