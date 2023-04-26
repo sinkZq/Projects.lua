@@ -33,7 +33,7 @@ if (type(getgenv().Key) ~= "string") then
     Whitelisted = false  
 end
 
--- // checking user whitelist // key, hwid, userid
+-- // checking user whitelist // key
 
 if (getgenv().Key ~= KeyTable.Key[1]) then
     Whitelisted = false
@@ -41,11 +41,15 @@ else
     Whitelisted = true
 end
 
+-- // hardware-id
+
 if (HwidTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId()) then
     Whitelisted = false
 else
     Whitelisted = true
 end
+
+-- // UserId
 
 if (HwidTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
     Whitelisted = false
