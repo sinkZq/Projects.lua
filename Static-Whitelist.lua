@@ -1,5 +1,6 @@
+getgenv().Key = "wyxzeeysyuawzW"
 -- // var to decide wether whitelisted or not
-local Whitelisted = false 
+local WhitelistedSteps = 0 
 
 -- // giving tables metatables bypasses majority of hookmetamethods // __index, __newindex, __namecall
 local StatusTable = setmetatable({}, {
@@ -16,10 +17,10 @@ local KeyTable = setmetatable({}, {
 
 -- // converting whitelisted bool to a string // output string
 local function ConvertBool(value: boolean): ()
-    assert(type(value) == "boolean", "boolean required")
-    if (value == true) then
+    assert(type(value) == "number", "number required")
+    if (value == 4) then
         value = "Whitelisted"
-    elseif (value == false) then
+    elseif (value ~= 4) then
         value = "Not whitelisted"
     end
     return value
@@ -38,28 +39,30 @@ task.spawn(function()
 end)
 
 if (type(getgenv().Key) ~= "string") then
-    Whitelisted = false  
+    WhitelistedSteps -= 1
+else
+    WhitelistedSteps += 1
 end
 
 -- // checking user whitelist // key
 if (getgenv().Key ~= KeyTable.Key[1]) then
-    Whitelisted = false
+    WhitelistedSteps -= 1
 else
-    Whitelisted = true
+    WhitelistedSteps += 1
 end
 
 -- // hardware-id
 if (StatusTable.Whitelisted[1] ~= game:GetService("RbxAnalyticsService"):GetClientId()) then
-    Whitelisted = false
+    WhitelistedSteps -= 1
 else
-    Whitelisted = true
+    WhitelistedSteps += 1
 end
 
 -- // user-id
 if (StatusTable.Whitelisted[2] ~= game:GetService("Players").LocalPlayer.UserId) then
-    Whitelisted = false
+    WhitelistedSteps -= 1
 else
-    Whitelisted = true  
+    WhitelistedSteps += 1  
 end
 
-print(ConvertBool(Whitelisted))
+print(ConvertBool(WhitelistedSteps))
