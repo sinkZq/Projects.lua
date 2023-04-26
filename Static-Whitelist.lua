@@ -64,4 +64,4 @@ else
     WhitelistedSteps += 1  
 end
 
-print(ConvertBool(WhitelistedSteps), " ", WhitelistedSteps," / ", WhitelistedSteps)
+print(ConvertBool(WhitelistedSteps), " ", WhitelistedSteps," / ", 4)
