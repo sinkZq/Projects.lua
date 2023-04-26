@@ -33,7 +33,7 @@ if type(getgenv().Key) ~= "string" then
     Whitelisted = false  
 end
 
--- // checking user whitelist // hwid, userid
+-- // checking user whitelist // key, hwid, userid
 
 if getgenv().Key ~= KeyTable.Key[1] then
     Whitelisted = false
