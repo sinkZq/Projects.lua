@@ -26,6 +26,9 @@ task.spawn(function()
     end
 end)
 
+for i, global in getgenv() do
+    
+end
 
 -- // checking user whitelist // hwid, userid
 
