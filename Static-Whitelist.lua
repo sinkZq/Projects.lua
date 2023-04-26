@@ -30,10 +30,8 @@ task.spawn(function()
     end
 end)
 
-if not table.find(getgenv(), "Key") then
-    Whitelisted = false
-else
-    Whitelisted = true
+if type(getgenv().Key) ~= "string" then
+    Whitelisted = false  
 end
 
 -- // checking user whitelist // hwid, userid
