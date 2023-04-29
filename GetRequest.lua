@@ -47,4 +47,6 @@ if
     not (ewocpgu) or
     not (igwiyre) then
     warn("FUNCTION ERRROR")
+else
+    print("CLEAR")
 end
